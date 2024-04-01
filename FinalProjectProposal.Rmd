@@ -61,11 +61,21 @@ Note: Your data set does not need to be ecological in nature if you have another
 
 1.  What data are you planning to use for the final project? Describe the data: its contents, its format(s), one or more dataframes, etc. If you have a link to the dataset, please include it. If you have a file that you can upload, please add it to the assignment submission.
 
+    I plan in using a the Spring Tree Phenology Observation dataset the National Phenology Network.
+
+    <https://archive.usanpn.org/node/35043>
+
 2.  Does this data need to be cleaned in any way to make it tidy? If so, what needs to occur?
+
+    Yes, the data needs to be cleaned. The data is in a wide format currently and I think it would be better in a long format. There are several areas in the excel sheet where cells are highlighted and there are several columns filled with "-99" that may need to be NA values.
 
 3.  Speaking generally, what tasks will you perform with this dataset? It might include tasks that we have not yet covered how to accomplish in class, but come up with a general plan that you would like to follow.
 
+    I will need to create a columns for the species name, site ID, and the phenological level. We might need to get rid of the highlighted cells if there is not metadata that explains why they are highlighted. The data also has multiple sheets so that will need to be condensed.
+
 4.  One of the requirements of the final project is to make some type of plot using `ggplot2` with the data. What do you plan to plot from your data?
+
+    I plan to plot the phenological level and the day of year. I can also create a plot for each species.
 
 # Reflection
 

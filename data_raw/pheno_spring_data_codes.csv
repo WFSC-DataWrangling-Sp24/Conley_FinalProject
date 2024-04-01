@@ -1,0 +1,25 @@
+﻿Code,Deciduous Species ,non-Deciduous Species
+100,Bud Visible (<10%),Bud Visible (<10%)
+110,Bud Visible (10-50%),Bud Visible (10-50%)
+150,Bud Visible (50-90%),Bud Visible (50-90%)
+190,Bud Visible (>90%),Bud Visible (>90%)
+200,Bud Swollen (<10%),Bud Swollen (<10%)
+210,Bud Swollen (10-50%),Bud Swollen (10-50%)
+250,Bud Swollen (50-90%),Bud Swollen (50-90%)
+290,Bud Swollen (>90%),Bud Swollen (>90%)
+300,"Bud Open, leaf visible (<10%)","Bud Open, candle visible (<10%)"
+310,"Bud Open, leaf visible (10-50%)","Bud Open, candle visible (10-50%)"
+350,"Bud Open, leaf visible (50-90%)","Bud Open, candle visible (50-90%)"
+390,"Bud Open, leaf visible (>90%)","Bud Open, candle visible (>90%)"
+400,"Leaf Out, not fully unfolded (<10%)","Candle Out, not unfolded (<10%)"
+410,"Leaf Out, not fully unfolded (10-50%)","Candle Out, not unfolded  (10-50%)"
+450,"Leaf Out, not fully unfolded (50-90%)","Candle Out, not unfolded  (50-90%)"
+490,"Leaf Out, not fully unfolded (>90%)","Candle Out, not unfolded  (>90%)"
+500,Full Leaf Unfolded (<10%),Needles Unfolding from Candle (<10%)
+510,Full Leaf Unfolded (10-50%),Needles Unfolding from Candle (10-50%)
+550,Full Leaf Unfolded (50-90%),Needles Unfolding from Candle (50-90%)
+590,Full Leaf Unfolded (>90%),Needles Unfolding from Candle (>90%)
+600,Leaf Expansion (size < 25% of full),Not Used
+625,Leaf Expansion (size 25-50% of full),Not Used
+650,Leaf Expansion (size 50-75% of full),Not Used
+675,Leaf Expansion (size >75% of full),Not Used

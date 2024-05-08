@@ -1,0 +1,112 @@
+---
+title: "FinalProject"
+author: "Kayla Conley"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+```
+
+```{r}
+# read in data
+tree_A_F <- read.csv("data_raw/pheno_spring_transect_A_F_raw.csv")
+tree_G_L <- read.csv("data_raw/pheno_spring_transect_G_L_raw.csv")
+tree_M_R <- read.csv("data_raw/pheno_spring_transect_M_R_raw.csv")
+tree_S_X <- read.csv("data_raw/pheno_spring_transect_S_X_raw.csv")
+
+
+#makes all datasets long instead of wide
+# A through F
+tree_A_F_long <- tree_A_F[-1, ] %>%  
+  pivot_longer('A1.1':'F12.3',
+               names_to = "tree.id",
+               values_to = "pheno_level") %>% 
+  select(X, X.1, X.2, tree.id, pheno_level) %>% 
+  rename(Year = X,
+         Date = X.1,
+         DOY = X.2,
+         Tree.ID = tree.id,
+         Pheno_Level = pheno_level)
+
+# G through L
+tree_G_L_long <- tree_G_L[-1, ] %>%  
+  pivot_longer('G1.1':'L12.3',
+               names_to = "tree.id",
+               values_to = "pheno_level") %>% 
+  select(X, X.1, X.2, tree.id, pheno_level) %>% 
+  rename(Year = X,
+         Date = X.1,
+         DOY = X.2,
+         Tree.ID = tree.id,
+         Pheno_Level = pheno_level)
+
+
+# M through R
+tree_M_R_long <- tree_M_R[-1, ] %>%  
+  pivot_longer('M1.1':'R12.3',
+               names_to = "tree.id",
+               values_to = "pheno_level") %>% 
+  select(X, X.1, X.2, tree.id, pheno_level) %>% 
+  rename(Year = X,
+         Date = X.1,
+         DOY = X.2,
+         Tree.ID = tree.id,
+         Pheno_Level = pheno_level)
+
+# S through X
+tree_S_X_long <- tree_S_X[-1, ] %>%  
+  pivot_longer('S1.1':'X12.3',
+               names_to = "tree.id",
+               values_to = "pheno_level") %>% 
+  select(X, X.1, X.2, tree.id, pheno_level) %>% 
+  rename(Year = X,
+         Date = X.1,
+         DOY = X.2,
+         Tree.ID = tree.id,
+         Pheno_Level = pheno_level)
+
+# Combine all datasets
+trees_combined <- bind_rows(tree_A_F_long, tree_G_L_long, tree_M_R_long, tree_S_X_long)
+
+# Seperate date column into Day and Month # Week 7 Dates and Strings
+trees_combined <- trees_combined %>% 
+  mutate(Month = str_extract(Date, "-(...)"),
+         Month = str_remove(Month, "-")) %>% 
+  mutate(Day = str_extract(Date, "(..)"),
+         Month = str_remove(Month, "-")) %>% 
+  select(Month, Day, Year, DOY, Tree.ID, Pheno_Level)
+
+
+# remove rows with -99 in pheno_level column and NA values 
+trees_combined <- trees_combined %>% 
+  filter(Pheno_Level != -99) 
+trees_combined <- na.omit(trees_combined)
+  
+
+# removing columns where the are no values in the Year column
+trees_combined <- trees_combined[trees_combined$Year != "", ]
+
+tail(trees_combined)
+
+# graph of trees by year
+# week 5 Visualization
+ggplot(trees_combined, aes(x = Year)) +
+  geom_bar()
+
+ggsave("trees_by_year.jpg")
+
+
+
+```
+
+![](http://127.0.0.1:16015/chunk_output/79D79F3955339499/C072A19F/cn18rhtmycte9/000037.png?resize=0)
